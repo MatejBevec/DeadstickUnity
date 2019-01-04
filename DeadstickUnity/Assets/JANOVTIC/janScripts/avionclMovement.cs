@@ -10,6 +10,10 @@ public class avionclMovement : MonoBehaviour
     public static float speed; //hitrost avioncla
     public float speeed; // za spremljanje hitrosti avioncla
     public float startSpeed; //hitrost ob začetku igre
+    public static float thrustLevel;
+    public float thrustLevelOn;
+    public float thrustLevelOff;
+
 
     public float turnSpeed;//večji se hitreje obrača
     public float verticalLessThanHorizontal;//uporabljen pri turn speedu da se avion hitreje vrti horizontalno kot vertikalno
@@ -31,6 +35,7 @@ public class avionclMovement : MonoBehaviour
     {
         vecDown = -(Vector3.up);
         speed = startSpeed;
+
     }
 
    
@@ -70,10 +75,14 @@ public class avionclMovement : MonoBehaviour
             if (Input.GetKey("space") && speed < maxSpeed)
             {
                 speed *= enginePower;
+                thrustLevel = thrustLevelOn;
+
             }
             else if (speed > minSpeed)
             {
                 speed /= dragPower;
+                thrustLevel = thrustLevelOff;
+
             }
 
 

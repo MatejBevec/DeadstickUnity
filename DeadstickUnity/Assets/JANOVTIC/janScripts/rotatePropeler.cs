@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class rotatePropeler : MonoBehaviour
 {
-   public float sp;
+  
     public GameObject Avioncl;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,6 @@ public class rotatePropeler : MonoBehaviour
     void Update()
     {
 
-        transform.Rotate(0f,0f,avionclMovement.speed);
+        transform.Rotate(0f,0f,avionclMovement.speed * avionclMovement.thrustLevel);
     }
 }
