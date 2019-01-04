@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 public class MainMenuScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public void toMenu2(){
+    public void next(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void toHighScores()
+    public void next2()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     public void back()

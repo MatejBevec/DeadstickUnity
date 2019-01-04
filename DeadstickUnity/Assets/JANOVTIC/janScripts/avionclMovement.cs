@@ -14,7 +14,6 @@ public class avionclMovement : MonoBehaviour
     public float thrustLevelOn;
     public float thrustLevelOff;
 
-
     public float turnSpeed;//večji se hitreje obrača
     public float verticalLessThanHorizontal;//uporabljen pri turn speedu da se avion hitreje vrti horizontalno kot vertikalno
 
@@ -35,7 +34,7 @@ public class avionclMovement : MonoBehaviour
     {
         vecDown = -(Vector3.up);
         speed = startSpeed;
-
+        Time.timeScale = 1f;
     }
 
    
@@ -43,6 +42,7 @@ public class avionclMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (pauseGame)
@@ -52,14 +52,17 @@ public class avionclMovement : MonoBehaviour
             else
             {
                 pauseGame = true;
+                thrustLevel = 0;
             }
 
         }
 
-        
+
+
 
         if (!pauseGame) //če ni pauze se use skp začne
         {
+        
             speeed = speed;
 
             //TURN

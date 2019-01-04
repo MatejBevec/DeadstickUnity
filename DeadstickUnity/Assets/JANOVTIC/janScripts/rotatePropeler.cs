@@ -9,7 +9,7 @@ public class rotatePropeler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    avionclMovement avionclMovement = Avioncl.GetComponent<avionclMovement>();
+   // avionclMovement avionclMovement = Avioncl.GetComponent<avionclMovement>();
 
     }
 
