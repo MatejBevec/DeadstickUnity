@@ -4,31 +4,34 @@ using UnityEngine;
 
 public class avionclMovement : MonoBehaviour
 {
-    public float turnSpeed;
-    private Vector3 thrust;
-    public float minSpeed;
-    public float maxSpeed;
-    public static float speed;
-    public float speeed;
-    public float enginePower;
-    public float dragPower;
-    public float weight;
-    private Vector3 vecDown;
-    public float verticalLessThanHorizontal;
-    public float gravity; //manjsi ko je vecji je
-    public float startSpeed;
 
-    
+    public float minSpeed; //pr tej hitrosti bo avion začel padati
+    public float maxSpeed; //max hitrost brez posbeška teže
+    public static float speed; //hitrost avioncla
+    public float speeed; // za spremljanje hitrosti avioncla
+    public float startSpeed; //hitrost ob začetku igre
+
+    public float turnSpeed;//večji se hitreje obrača
+    public float verticalLessThanHorizontal;//uporabljen pri turn speedu da se avion hitreje vrti horizontalno kot vertikalno
+
+    public float wingArea;  // večji ko je bolj avion zavije v ovinek
+    public float turnLift; //reccomended 1.4   -   večji ko je manj lifta imamo v ovinku
+    public float enginePower; //večji hitreje pospešuje
+    public float dragPower; //večji hitreje se ustavi ko ne držimo pogona
+    public float weight;  //večji hitreje pada, težje se dvigne
+
+    public float gravity; //=pospešekmanjsi ko je vecji je
+
+    private Vector3 thrust;
+    private Vector3 vecDown;
+
     void Start()
     {
         vecDown = -(Vector3.up);
         speed = startSpeed;
     }
 
-    public float getSpeed()
-    {
-        return maxSpeed;
-    }
+   
 
     // Update is called once per frame
     void Update()
@@ -58,7 +61,7 @@ public class avionclMovement : MonoBehaviour
         //PREMALO SPEEDA
         if (speed < minSpeed)
         {
-            transform.position += vecDown * ((minSpeed - speed) / (40 * weight));
+            transform.position += vecDown * ((minSpeed - speed) / (gravity * 2 * weight));
 
             if (transform.up.y > 0f)
             {
@@ -88,11 +91,11 @@ public class avionclMovement : MonoBehaviour
             if (transform.right.y > 0f)
             {
                //transform.Rotate(0f, -0.4f * transform.right.y, 0f, Space.World);
-                 transform.Rotate(-weight * transform.right.y, -weight * 1.4f * transform.right.y, 0f);
+                 transform.Rotate(-wingArea * transform.right.y, -wingArea * turnLift * transform.right.y, 0f);
             }
             if (transform.right.y < 0f)
             {
-                transform.Rotate(weight * transform.right.y, -weight * 1.4f * transform.right.y, 0f);
+                transform.Rotate(wingArea * transform.right.y, -wingArea * turnLift * transform.right.y, 0f);
                // transform.Rotate(0f, -0.4f * transform.right.y, 0f, Space.World);
             }
       
