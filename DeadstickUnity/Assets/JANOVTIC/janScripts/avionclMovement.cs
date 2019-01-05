@@ -15,7 +15,7 @@ public class avionclMovement : MonoBehaviour
     public float thrustLevelOff;
 
     public float turnSpeed;//večji se hitreje obrača
-    public float verticalLessThanHorizontal;//uporabljen pri turn speedu da se avion hitreje vrti horizontalno kot vertikalno
+    public float pullPower;//uporabljen pri turn speedu da se avion hitreje vrti horizontalno kot vertikalno
 
     public float wingArea;  // večji ko je bolj avion zavije v ovinek
     public float turnLift; //reccomended 1.4   -   večji ko je manj lifta imamo v ovinku
@@ -25,7 +25,7 @@ public class avionclMovement : MonoBehaviour
 
     public float gravity; //= težni pospešek   (manjsi ko je vecji je)
 
-    private Vector3 thrust;
+    public Vector3 thrust;
     private Vector3 vecDown;
 
     private bool pauseGame = false;
@@ -66,7 +66,7 @@ public class avionclMovement : MonoBehaviour
             speeed = speed;
 
             //TURN
-            transform.Rotate(turnSpeed / verticalLessThanHorizontal * Input.GetAxis("Vertical"), 0, -turnSpeed * Input.GetAxis("Horizontal"));
+            transform.Rotate(turnSpeed / pullPower * Input.GetAxis("Vertical"), 0, -turnSpeed * Input.GetAxis("Horizontal"));
 
             //CALCULATE THRUST
             thrust = transform.forward * speed * Time.deltaTime;
@@ -96,11 +96,11 @@ public class avionclMovement : MonoBehaviour
 
                 if (transform.up.y > 0f)
                 {
-                    transform.Rotate((minSpeed - speed) * (weight * 2), 0f, 0f);
+                    transform.Rotate((minSpeed - speed) * (weight * 5), 0f, 0f);
                 }
                 else
                 {
-                    transform.Rotate(-(minSpeed - speed) * (weight * 2), 0f, 0f);
+                    transform.Rotate(-(minSpeed - speed) * (weight * 5), 0f, 0f);
                 }
             }
 
