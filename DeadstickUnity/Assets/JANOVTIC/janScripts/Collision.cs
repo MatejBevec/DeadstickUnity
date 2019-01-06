@@ -16,16 +16,18 @@ public class Collision : MonoBehaviour
 
     void OnCollisionEnter(UnityEngine.Collision collision)
     {
+       
             followAvioncl.enabled = false;
-             aViewFromHeaven.enabled = true;
+            aViewFromHeaven.enabled = true;
             scriptMovement.enabled = false;
             //AVIONCL.EXPLODE!!!!!!
             rg.useGravity = true;
-        if (permission)
-        {
-            rg.AddForce(scriptMovement.thrust * scriptMovement.speeed * scriptMovement.speeed / kamGaOdfuka);
-            permission = false;
-        }
+            if (permission)
+            {
+                rg.AddForce(scriptMovement.thrust * scriptMovement.speeed * scriptMovement.speeed / kamGaOdfuka);
+                permission = false;
+            }
+        
 
             
             

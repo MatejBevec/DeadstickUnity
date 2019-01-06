@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/JANOVTIC/janScene/Time Trial.unity
     guid: feaed9554758f4d4b84ccb32ef97064e
+  - enabled: 1
+    path: Assets/JANOVTIC/janScene/Split Screen.unity
+    guid: 319c5219851b641cb8ad1bd74e2d9b0a
   m_configObjects: {}

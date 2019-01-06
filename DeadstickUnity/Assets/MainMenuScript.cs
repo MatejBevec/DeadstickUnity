@@ -15,6 +15,11 @@ public class MainMenuScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
+    public void next3()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
+    }
+
     public void back()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
