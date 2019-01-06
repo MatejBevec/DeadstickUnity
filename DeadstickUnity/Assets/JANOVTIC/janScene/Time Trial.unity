@@ -289,9 +289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   avioncl: {fileID: 1813736123}
   offset: {x: 0, y: 0, z: 0}
-  bias: 0.96
+  bias: 0.94
   up: 3
-  back: 3
+  back: 5
   CamForward: 30
 --- !u!114 &142308642
 MonoBehaviour:
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avioncl: {fileID: 1813736123}
-  offset: {x: 0, y: 50, z: 0}
+  offset: {x: 0, y: 40, z: 0}
 --- !u!1 &219326543 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: d63ab6fcb5b814b549970b712deda824,
@@ -482,10 +482,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 015a9e7ecef6a40ad8cca1d2dba26559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 5
+  minSpeed: 7
   maxSpeed: 50
   speeed: 0
-  startSpeed: 10
+  startSpeed: 15
   thrustLevelOn: 1.6
   thrustLevelOff: 0.84
   turnSpeed: 2
@@ -495,7 +495,7 @@ MonoBehaviour:
   enginePower: 1.01
   dragPower: 1.001
   weight: 0.24
-  gravity: 20
+  gravity: 10
   thrust: {x: 0, y: 0, z: 0}
 --- !u!4 &1813736123 stripped
 Transform:
@@ -549,4 +549,4 @@ MonoBehaviour:
   aViewFromHeaven: {fileID: 142308642}
   scriptMovement: {fileID: 1813736122}
   rg: {fileID: 1813736124}
-  kamGaOdfuka: 1
+  kamGaOdfuka: 5

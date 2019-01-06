@@ -10,9 +10,9 @@ public class avionclMovement : MonoBehaviour
     public static float speed; //hitrost avioncla
     public float speeed; // za spremljanje hitrosti avioncla
     public float startSpeed; //hitrost ob začetku igre
-    public static float thrustLevel;
-    public float thrustLevelOn;
-    public float thrustLevelOff;
+    public static float thrustLevel; //samo za propeler
+    public float thrustLevelOn; //samo za propeler
+    public float thrustLevelOff; //samo za propeler
 
     public float turnSpeed;//večji se hitreje obrača
     public float pullPower;//uporabljen pri turn speedu da se avion hitreje vrti horizontalno kot vertikalno
@@ -92,15 +92,15 @@ public class avionclMovement : MonoBehaviour
             //PREMALO SPEEDA
             if (speed < minSpeed)
             {
-                transform.position += vecDown * ((minSpeed - speed) / (gravity * 2 * weight));
+                transform.position += vecDown * (1 - wingArea) * ((minSpeed - speed) / (gravity * 2 * weight));
 
                 if (transform.up.y > 0f)
                 {
-                    transform.Rotate((minSpeed - speed) * (weight * 5), 0f, 0f);
+                    transform.Rotate((minSpeed - speed) * (weight * (1 - wingArea) * 5), 0f, 0f);
                 }
                 else
                 {
-                    transform.Rotate(-(minSpeed - speed) * (weight * 5), 0f, 0f);
+                    transform.Rotate(-(minSpeed - speed) * (weight * (1 - wingArea) * 5), 0f, 0f);
                 }
             }
 
