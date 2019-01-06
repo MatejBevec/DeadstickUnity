@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 142308639}
   - component: {fileID: 142308638}
   - component: {fileID: 142308641}
+  - component: {fileID: 142308642}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -292,6 +293,20 @@ MonoBehaviour:
   up: 3
   back: 3
   CamForward: 30
+--- !u!114 &142308642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142308637}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5c479239dfc4919a428eb8abd08f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avioncl: {fileID: 1813736123}
+  offset: {x: 0, y: 50, z: 0}
 --- !u!1 &219326543 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100004, guid: d63ab6fcb5b814b549970b712deda824,
@@ -530,6 +545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80adfaa413d5a485db2cdc4aadad8850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followAvioncl: {fileID: 142308641}
+  aViewFromHeaven: {fileID: 142308642}
   scriptMovement: {fileID: 1813736122}
   rg: {fileID: 1813736124}
-  kamGaOdfuka: 3
+  kamGaOdfuka: 1

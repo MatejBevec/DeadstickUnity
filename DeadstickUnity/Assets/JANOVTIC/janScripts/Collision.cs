@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
+
+    public followAvioncl followAvioncl;
+    public aViewFromHeaven aViewFromHeaven;
     public avionclMovement scriptMovement;
     public Rigidbody rg;
     public float kamGaOdfuka;
@@ -13,6 +16,8 @@ public class Collision : MonoBehaviour
 
     void OnCollisionEnter(UnityEngine.Collision collision)
     {
+            followAvioncl.enabled = false;
+             aViewFromHeaven.enabled = true;
             scriptMovement.enabled = false;
             //AVIONCL.EXPLODE!!!!!!
             rg.useGravity = true;
