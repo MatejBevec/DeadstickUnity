@@ -7,6 +7,7 @@ public class avionclMovement : MonoBehaviour
 
     public float minSpeed; //pr tej hitrosti bo avion začel padati
     public float maxSpeed; //max hitrost brez posbeška teže
+    public static float maxStaticSpeed;
     public static float speed; //hitrost avioncla
     public float speeed; // za spremljanje hitrosti avioncla
     public float startSpeed; //hitrost ob začetku igre
@@ -30,14 +31,24 @@ public class avionclMovement : MonoBehaviour
 
     private bool pauseGame = false;
 
+
+
+
+
+
     void Start()
     {
         vecDown = -(Vector3.up);
         speed = startSpeed;
         Time.timeScale = 1f;
+        maxStaticSpeed = maxSpeed;
+
     }
 
    
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -112,7 +123,7 @@ public class avionclMovement : MonoBehaviour
             }
             if (transform.forward.y < 0f)
             {
-                speed *= 1f + -(transform.forward.y) * weight / gravity;
+                speed *= 1f - (transform.forward.y * weight / gravity);
             }
 
 
