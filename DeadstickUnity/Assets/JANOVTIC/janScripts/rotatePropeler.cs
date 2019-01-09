@@ -5,46 +5,45 @@ using UnityEngine.Audio;
 
 public class rotatePropeler : MonoBehaviour
 {
-    public AudioSource propelerAudio;
-    private float propelerRotation;
+    //public avionclMovement avionclMovementt;
+    public AudioSource planeAudio;
+    public float propelerRotation;
     public float audioPropelerPitchDivider;
-    private float pitchLevel = 0.1f;
+    public float audioPropelerVolumeDivider;
+    private float pitchLevel;
+    private float maxPropelerRotation;
+    public float maxPitch;
+    private bool AlreadyGotMaxSpeed = false;
+    public avionclMovement scriptMovement;
 
 
+    private void getMaxSpeed()
+    {
+            maxPropelerRotation = scriptMovement.speed * maxPitch;
+            audioPropelerVolumeDivider = scriptMovement.maxSpeed / 2;
+    }
     // Update is called once per frame
     void Update()
     {
-        propelerRotation = avionclMovement.speed * avionclMovement.thrustLevel;
+        if (!AlreadyGotMaxSpeed) {
+            getMaxSpeed();
+            AlreadyGotMaxSpeed = true;
+        }
+        if (propelerRotation > maxPropelerRotation)
+            {
+                propelerRotation = maxPropelerRotation;
+            }
+
+        propelerRotation = scriptMovement.speed * scriptMovement.thrustLevel;
+
+
         transform.Rotate(0f,0f,propelerRotation);
 
         pitchLevel = propelerRotation / audioPropelerPitchDivider;
-        if (pitchLevel > 10)
-        {
-            pitchLevel = 10;
-        }
+        planeAudio.pitch = pitchLevel;
+        planeAudio.volume = (audioPropelerVolumeDivider) / scriptMovement.speed;
 
-        propelerAudio.pitch = pitchLevel;
-
-        /*ZRIHTAJ DO KONCAS
-        if (avionclMovement.thrustLevel>1f)
-        {
-            pitchLevel *= 1.0001f;
-        }
-        else
-        {
-            pitchLevel /= 1.0001f;
-        }
-        if (pitchLevel>0.2)
-        {
-            pitchLevel = 1;
-        }
-        if (pitchLevel == 0f)
-        {
-            pitchLevel = 0.1f;
-        }
-
-        propelerAudio.pitch+= 
-        */
+     
 
     }
 }

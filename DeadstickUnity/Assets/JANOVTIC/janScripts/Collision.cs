@@ -14,23 +14,36 @@ public class Collision : MonoBehaviour
     public float kamGaOdfuka;
     private bool permission = true;
     public AudioManager audioManager;
-    
-    
+    public GameObject explosionEffect;
 
 
-    void OnCollisionEnter(UnityEngine.Collision collision)
+    private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-            if (permission)
-            {
+        if (permission&&collision.collider.tag == "Ovira")
+        {
+            scriptMovement.thrustLevel = 0;
             followAvioncl.enabled = false;
             aViewFromHeaven.enabled = true;
             scriptMovement.enabled = false;
-            torpedoMovement.enabled = false;
+            if (torpedoMovement != null)
+            {
+                torpedoMovement.enabled = false;
+                torpedoMovement2.enabled = false;
+            }
             //AVIONCL.EXPLODE!!!!!!
             rg.useGravity = true;
             audioManager.playExplosion();
-            rg.AddForce(scriptMovement.thrust * scriptMovement.speeed * scriptMovement.speeed / kamGaOdfuka);
+            rg.AddForce(scriptMovement.thrust * scriptMovement.speed * scriptMovement.speed / kamGaOdfuka);
+            Explode();
             permission = false;
-            }
+        }
     }
-}
+
+        
+
+        private void Explode()
+        {
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+        Debug.Log("AvionclExplodiru");
+        }
+    }

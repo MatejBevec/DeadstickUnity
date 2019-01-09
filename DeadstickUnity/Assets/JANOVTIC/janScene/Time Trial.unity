@@ -325,7 +325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae823cd87326c45f3a73c68ce2bf9fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Avioncl: {fileID: 1813736121}
+  propelerAudio: {fileID: 0}
+  audioPropelerPitchDivider: 0
 --- !u!1001 &905325269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -548,5 +549,10 @@ MonoBehaviour:
   followAvioncl: {fileID: 142308641}
   aViewFromHeaven: {fileID: 142308642}
   scriptMovement: {fileID: 1813736122}
+  torpedoMovement: {fileID: 0}
+  torpedoMovement2: {fileID: 0}
   rg: {fileID: 1813736124}
   kamGaOdfuka: 5
+  audioManager: {fileID: 0}
+  explosionEffect: {fileID: 0}
+  hasExploded: 0

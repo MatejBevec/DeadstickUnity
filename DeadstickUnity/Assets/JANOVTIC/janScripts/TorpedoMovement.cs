@@ -5,30 +5,50 @@ using UnityEngine.Audio;
 
 public class TorpedoMovement : MonoBehaviour
 {
-    public GameObject torpedo;
+
     public Rigidbody rg;
     public Transform avioncl;
     public float shootingPower;
-    public float secToDestroy;
+    private Vector3 torpedoPower;
     public bool shoot = false;
+    public avionclMovement scriptMovement;
+    public string shootInput;
+    public torpedoCollision torpedoCollision;
+    Collider torpedoCollider;
+
+
+
+  
 
     public AudioManager AudioManager;
 
     void Start()
     {
+        torpedoCollider = GetComponent<Collider>();
+        torpedoCollider.isTrigger = true;
         Physics.IgnoreCollision(avioncl.GetComponent<Collider>(), GetComponent<Collider>());
+
+
     }
+
+  
 
     void Update()
     {
-        if (shoot||Input.GetKeyDown("u"))
+        if (shoot||Input.GetKeyDown(shootInput))
         {
 
             if (!shoot)
             {
+
                 AudioManager.playLaunch();
                 transform.parent = null;
                 shoot = true;
+                torpedoPower = transform.up * shootingPower * scriptMovement.speed / (scriptMovement.maxSpeed / 2);
+                torpedoCollision.izstreljen = true;
+                torpedoCollider.isTrigger = false;
+                rg.constraints = RigidbodyConstraints.None;
+
             }
             fire();
         }
@@ -36,18 +56,11 @@ public class TorpedoMovement : MonoBehaviour
 
     void fire()
     {
-        rg.AddForce(transform.up * shootingPower * avionclMovement.speed/(avionclMovement.maxStaticSpeed/2));
+        rg.AddForce(torpedoPower);
     }
 
-    private void OnCollisionEnter(UnityEngine.Collision collision)
-    {
-        if (!AudioManager.explosionAlreadyPlayed)
-        {
+   
 
-            Destroy(torpedo,secToDestroy);
-            AudioManager.playExplosion();
-            AudioManager.explosionAlreadyPlayed = true;
-        }
-    }
+
 
 }

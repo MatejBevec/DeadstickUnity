@@ -7,7 +7,8 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource audioLaunch;
     public AudioSource audioExplosion;
-    public bool explosionAlreadyPlayed = false;
+   // public AudioSource propelerAudio;
+    
 
     public void playExplosion()
     {
