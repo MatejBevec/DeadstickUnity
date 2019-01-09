@@ -34,7 +34,7 @@ public class avionclMovement : MonoBehaviour
     public string inputHorizontal;
     public string inputAccelaration;
 
-
+    public GameObject drugiAvioncl;
 
 
 
@@ -45,6 +45,7 @@ public class avionclMovement : MonoBehaviour
         speed = startSpeed;
         Time.timeScale = 1f;
         thrustLevel = thrustLevelOff;
+        Physics.IgnoreCollision(drugiAvioncl.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
    

@@ -15,6 +15,8 @@ public class TorpedoMovement : MonoBehaviour
     public string shootInput;
     public torpedoCollision torpedoCollision;
     Collider torpedoCollider;
+    public Transform drugiAvioncl;
+    
 
 
 
@@ -44,23 +46,23 @@ public class TorpedoMovement : MonoBehaviour
                 AudioManager.playLaunch();
                 transform.parent = null;
                 shoot = true;
-                torpedoPower = transform.up * shootingPower * scriptMovement.speed / (scriptMovement.maxSpeed / 2);
+                Destroy(gameObject, torpedoCollision.secToDestroy);
                 torpedoCollision.izstreljen = true;
                 torpedoCollider.isTrigger = false;
-                rg.constraints = RigidbodyConstraints.None;
+
 
             }
             fire();
+            
         }
     }
 
     void fire()
     {
+        torpedoPower = transform.forward * shootingPower * scriptMovement.speed / (scriptMovement.maxSpeed / 2);
+        this.transform.LookAt(drugiAvioncl.transform.position);
         rg.AddForce(torpedoPower);
     }
 
    
-
-
-
 }

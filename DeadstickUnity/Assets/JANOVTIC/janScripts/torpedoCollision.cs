@@ -21,7 +21,7 @@ public class torpedoCollision : MonoBehaviour
 
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        if (!exlosionPlayed1&&izstreljen)
+        if (!exlosionPlayed1&&izstreljen&&collision.collider.tag == "Ovira")
         {
             Destroy(gameObject, secToDestroy);
             AudioManager.playExplosion();

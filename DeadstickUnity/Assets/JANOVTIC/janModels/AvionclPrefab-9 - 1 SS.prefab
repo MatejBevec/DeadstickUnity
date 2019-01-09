@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6185599527145842014
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2391202398391394942, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_Name
+      value: AvionclPrefab-8 - 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391202398391107166, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391202398391107166, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 130.82501
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391202398391107166, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -657
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391202398391107166, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391202398391107166, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391202398391107166, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391202398391107166, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391202398391107166, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391202398391107166, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391202398391107166, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391202398391107166, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498032667671571005, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: followAvioncl
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498032667671571005, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: aViewFromHeaven
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498032667845651364, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: torpedoCollision
+      value: 
+      objectReference: {fileID: 4456862701564251649}
+    - target: {fileID: 7498032668681521735, guid: 66b29a07fe2a74714b2eb62d577c131b,
+        type: 3}
+      propertyPath: torpedoCollision
+      value: 
+      objectReference: {fileID: 4456862700186857252}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 66b29a07fe2a74714b2eb62d577c131b, type: 3}
+--- !u!114 &4456862701564251649 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7498032667845651295, guid: 66b29a07fe2a74714b2eb62d577c131b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6185599527145842014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4b331d97794417aa80a9f64b27fe29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4456862700186857252 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7498032668681521786, guid: 66b29a07fe2a74714b2eb62d577c131b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6185599527145842014}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4b331d97794417aa80a9f64b27fe29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
