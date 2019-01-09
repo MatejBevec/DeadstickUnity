@@ -5,15 +5,18 @@ using UnityEngine;
 public class Ring : MonoBehaviour
 {
 
-    public bool tagged;
-    public int state; //0-invisible, 1-visible, 2-active
+    private bool tagged;
 
     public Material untaggedMat;
     public Material taggedMat;
 
+    //don't wanna do this - link to RingManager
+    public RingManager myManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<Ring>().enabled = true;
         tagged = false;
     }
 
@@ -31,8 +34,36 @@ public class Ring : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void Tag()
     {
-        tagged = !tagged;
+        tagged = true;
+        GetComponent<Renderer>().material = taggedMat;
+    }
+
+    public void Untag()
+    {
+        GetComponent<Renderer>().material = untaggedMat;
+        tagged = false;
+    }
+
+    public void ToggleTag()
+    {
+        if (tagged) { Untag(); }
+        else if (!tagged) { Tag(); }
+   
+    }
+
+    //looks like i'll have to communicate upstream :(
+    void OnTriggerEnter(Collider other)
+    {
+        if (myManager != null)
+        {
+            Debug.Log("Collision detected.");
+            myManager.RingCollided(gameObject, other);
+        }
+        else
+        {
+            Debug.Log("Not linked to a RingManager.");
+        }
     }
 }
