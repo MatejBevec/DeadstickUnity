@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5529514018900678447
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4640467790441250576, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_Name
+      value: AvionclPrefab-7 - 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640467790441210672, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640467790441210672, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 130.82501
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640467790441210672, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -657
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640467790441210672, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640467790441210672, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640467790441210672, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640467790441210672, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640467790441210672, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640467790441210672, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640467790441210672, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4640467790441210672, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 668606196686305107, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: followAvioncl
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 668606196686305107, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: aViewFromHeaven
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 668606196686305113, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: scriptMovement
+      value: 
+      objectReference: {fileID: 5042794079046508671}
+    - target: {fileID: 668606197086877386, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: sriptMovement
+      value: 
+      objectReference: {fileID: 5042794079046508671}
+    - target: {fileID: 668606197086877386, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: scriptMovement
+      value: 
+      objectReference: {fileID: 5042794079046508671}
+    - target: {fileID: 668606197086877386, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: shootInput
+      value: o
+      objectReference: {fileID: 0}
+    - target: {fileID: 668606197854852905, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: sriptMovement
+      value: 
+      objectReference: {fileID: 5042794079046508671}
+    - target: {fileID: 668606197854852905, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: scriptMovement
+      value: 
+      objectReference: {fileID: 5042794079046508671}
+    - target: {fileID: 668606197854852905, guid: e735e53c9f0214c169afa81d60f452a8,
+        type: 3}
+      propertyPath: shootInput
+      value: i
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e735e53c9f0214c169afa81d60f452a8, type: 3}
+--- !u!114 &5042794079046508671 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 668606196686305104, guid: e735e53c9f0214c169afa81d60f452a8,
+    type: 3}
+  m_PrefabInstance: {fileID: 5529514018900678447}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015a9e7ecef6a40ad8cca1d2dba26559, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
