@@ -8,8 +8,14 @@ public class RingManager : MonoBehaviour
     public GameObject trackRoot;
     public GameObject ringPrefab;
     public List<GameObject> ringList;
+    public List<float> timeList; //time elapsed from the start of the run when a specific ring is tagged
     private int length;
     private int progress;
+    private float startTime;
+    private float runDuration;
+
+    public GameModeManager myManager;
+    public GameObject myPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +25,7 @@ public class RingManager : MonoBehaviour
         InstantiateTrack(trackRoot);
         length = ringList.Count;
         progress = 0;
+        startTime = 0f;
     }
 
     // Update is called once per frame
@@ -42,10 +49,21 @@ public class RingManager : MonoBehaviour
         }
     }
 
+    //is called when the race starts
+    public void StartRun()
+    {
+        startTime = Time.fixedTime;
+    }
+
     //return pointer to the ring at given index
     public GameObject FindRing(int index)
     {
         return ringList[index];
+    }
+
+    public GameObject CurrentRing()
+    {
+        return ringList[progress];
     }
 
     //return index of the given ring
@@ -54,25 +72,22 @@ public class RingManager : MonoBehaviour
         return ringList.IndexOf(ring);
     }
 
-    public void TagAll()
-    {
-        foreach (GameObject ring in ringList){
-            ring.GetComponent<Ring>().Tag();
-        }
-    }
-
-    public void UntagAll()
+    //untags all rings and updates manager accordingly
+    public void ResetTrack()
     {
         foreach (GameObject ring in ringList)
         {
             ring.GetComponent<Ring>().Untag();
         }
+        progress = 0;
+        startTime = Time.fixedTime;
+        runDuration = 0;
+        timeList.Clear();
     }
 
     //is called when a ring collision happens (to be improved)
     public void RingCollided(GameObject ring, Collider other)
     {
-        Debug.Log("RingCollided called " + FindIndex(ring) + " " + progress);
         if (CheckColValidity(ring, other))
         {
             HandleValidCol(ring);
@@ -81,7 +96,7 @@ public class RingManager : MonoBehaviour
 
     private bool CheckColValidity(GameObject ring, Collider other)
     {
-        if (FindIndex(ring) == progress)
+        if (FindIndex(ring) == progress && (other.gameObject == myPlayer || myPlayer == null))
         {
             return true;
         }
@@ -90,20 +105,23 @@ public class RingManager : MonoBehaviour
 
     private void HandleValidCol(GameObject ring)
     {
-        Debug.Log(ring.GetComponent<Ring>());
         ring.GetComponent<Ring>().Tag();
-        if (progress >= length - 1)
+        timeList.Add(Time.fixedTime - startTime);
+        progress++;
+        Debug.Log("Ring (" + FindIndex(ring) + ") tagged, progress: " + progress + "/" + length);
+        if (progress >= length)
         {
             HandleCompletedTrack();
         }
-        else
-        {
-            progress++;
-        }
+        
     }
 
     private void HandleCompletedTrack()
     {
-
+        runDuration = Time.fixedTime - startTime;
+        if (myManager)
+        {
+            myManager.RunCompleted(runDuration, timeList);
+        }
     }
 }

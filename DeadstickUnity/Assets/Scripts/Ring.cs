@@ -58,7 +58,6 @@ public class Ring : MonoBehaviour
     {
         if (myManager != null)
         {
-            Debug.Log("Collision detected.");
             myManager.RingCollided(gameObject, other);
         }
         else
