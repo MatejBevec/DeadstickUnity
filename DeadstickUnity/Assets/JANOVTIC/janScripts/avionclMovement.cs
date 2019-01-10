@@ -20,6 +20,7 @@ public class avionclMovement : MonoBehaviour
     public float turnLift; //reccomended 1.4   -   večji ko je manj lifta imamo v ovinku
     public float enginePower; //večji hitreje pospešuje
     public float dragPower; //večji hitreje se ustavi ko ne držimo pogona
+    private float nespremenjenDragPower;
     public float weight;  //večji hitreje pada, težje se dvigne
     public float pocasnejeDol;
 
@@ -41,11 +42,13 @@ public class avionclMovement : MonoBehaviour
 
     void Start()
     {
+        nespremenjenDragPower = dragPower;
         vecDown = -(Vector3.up);
         speed = startSpeed;
         Time.timeScale = 1f;
         thrustLevel = thrustLevelOff;
         Physics.IgnoreCollision(drugiAvioncl.GetComponent<Collider>(), GetComponent<Collider>());
+        
     }
 
    
@@ -153,5 +156,6 @@ public class avionclMovement : MonoBehaviour
                 // transform.Rotate(0f, -0.4f * transform.right.y, 0f, Space.World);
             }
         }
+        dragPower = nespremenjenDragPower;
     }
 }
