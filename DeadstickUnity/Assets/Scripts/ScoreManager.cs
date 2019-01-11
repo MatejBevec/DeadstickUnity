@@ -12,7 +12,7 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(gameObject); //scores need to stay when going back to a menu
     }
 
     // Update is called once per frame
