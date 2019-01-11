@@ -16,7 +16,6 @@ public class TorpedoMovement : MonoBehaviour
     public torpedoCollision torpedoCollision;
     Collider torpedoCollider;
     public Transform drugiAvioncl;
-    public float kolikoNaprej;
     
 
 
@@ -60,9 +59,8 @@ public class TorpedoMovement : MonoBehaviour
 
     void fire()
     {
-        kolikoNaprej = Vector3.Distance(this.transform.position,drugiAvioncl.transform.position) * scriptMovement.speed/scriptMovement.maxSpeed/2;
         torpedoPower = transform.forward * shootingPower * scriptMovement.speed / (scriptMovement.maxSpeed / 2);
-        this.transform.LookAt(drugiAvioncl.transform.position + (drugiAvioncl.transform.forward * kolikoNaprej));
+        this.transform.LookAt(drugiAvioncl.transform.position);
         rg.AddForce(torpedoPower);
     }
 
