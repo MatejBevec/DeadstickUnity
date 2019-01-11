@@ -7,8 +7,7 @@ public class Score : ScriptableObject //maybe just go with a normal class ?
     public float time;
     public List<float> timeList;
     //public GameObject ghost;
-    public List<Vector3> ghostPos;
-    public List<Quaternion> ghostRot;
+    public Record ghostRecord;
 
     public string nickname;
 
@@ -16,6 +15,11 @@ public class Score : ScriptableObject //maybe just go with a normal class ?
     public GameObject trackObject; //a pointer to the track on which this score was set
     public string trackName;
     public GameObject playerObject; //which player object / plane was this score achieved with
+
+    //gamemode stuff
+    public string gamemode;
+    public static string TIMETRIAL = "TimeTrial";
+    public static string SPLITSCREEN = "SplitScreen";
 
     //constructor
     /*
@@ -26,12 +30,11 @@ public class Score : ScriptableObject //maybe just go with a normal class ?
     }
     */
 
-    public void Construct(float time, List<float> timeList,List<Vector3> ghostPos,List<Quaternion> ghostRot)
+    public void Construct(float time, List<float> timeList, Record record)
     {
         this.time = time;
         this.timeList = timeList;
-        this.ghostPos = ghostPos;
-        this.ghostRot = ghostRot;
+        this.ghostRecord = record;
     }
 
     public static int CompareScores(Score x, Score y)

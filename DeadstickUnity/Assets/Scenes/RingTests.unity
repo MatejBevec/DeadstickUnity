@@ -347,6 +347,7 @@ GameObject:
   m_Component:
   - component: {fileID: 611223592}
   - component: {fileID: 611223591}
+  - component: {fileID: 611223593}
   m_Layer: 0
   m_Name: TimeTrialManager
   m_TagString: Untagged
@@ -369,6 +370,11 @@ MonoBehaviour:
   spawnPoint: {fileID: 167824288}
   ringManager: {fileID: 1995292727}
   player: {fileID: 839249342}
+  scoreManager: {fileID: 611223593}
+  ghostPrefab1: {fileID: 5574688855563650283, guid: 422d4a4677548bc4b86d84b903983ced,
+    type: 3}
+  ghostPrefab2: {fileID: 5574688855563650283, guid: 422d4a4677548bc4b86d84b903983ced,
+    type: 3}
 --- !u!4 &611223592
 Transform:
   m_ObjectHideFlags: 0
@@ -383,6 +389,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &611223593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611223590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349d9b46382074146bb0f02a52e7b38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoresThisGame: []
+  scoresAllTime: []
 --- !u!1001 &837084922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -476,6 +496,7 @@ GameObject:
   - component: {fileID: 839249343}
   - component: {fileID: 839249347}
   - component: {fileID: 839249348}
+  - component: {fileID: 839249349}
   m_Layer: 0
   m_Name: Player
   m_TagString: Ring
@@ -582,6 +603,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08c23c308ab6d0942b06a0adc631c83c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forward: w
+  back: s
+--- !u!114 &839249349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839249342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367a2ceaae259d947bdf4ec9b8288579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &865138372
@@ -1012,6 +1047,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: RingManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3152469488521205301, guid: c57c6dae094597344a96b21f735b0389,
+        type: 3}
+      propertyPath: trackRoot
+      value: 
+      objectReference: {fileID: 203977067}
+    - target: {fileID: 3152469488521205301, guid: c57c6dae094597344a96b21f735b0389,
+        type: 3}
+      propertyPath: myManager
+      value: 
+      objectReference: {fileID: 611223591}
+    - target: {fileID: 3152469488521205301, guid: c57c6dae094597344a96b21f735b0389,
+        type: 3}
+      propertyPath: myPlayer
+      value: 
+      objectReference: {fileID: 839249342}
     - target: {fileID: 3152469488521205302, guid: c57c6dae094597344a96b21f735b0389,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1067,20 +1117,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3152469488521205301, guid: c57c6dae094597344a96b21f735b0389,
-        type: 3}
-      propertyPath: trackRoot
-      value: 
-      objectReference: {fileID: 203977067}
-    - target: {fileID: 3152469488521205301, guid: c57c6dae094597344a96b21f735b0389,
-        type: 3}
-      propertyPath: myManager
-      value: 
-      objectReference: {fileID: 611223591}
-    - target: {fileID: 3152469488521205301, guid: c57c6dae094597344a96b21f735b0389,
-        type: 3}
-      propertyPath: myPlayer
-      value: 
-      objectReference: {fileID: 839249342}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c57c6dae094597344a96b21f735b0389, type: 3}

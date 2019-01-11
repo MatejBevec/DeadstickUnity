@@ -9,10 +9,13 @@ public class RingManager : MonoBehaviour
     public GameObject ringPrefab;
     public List<GameObject> ringList;
     public List<float> timeList; //time elapsed from the start of the run when a specific ring is tagged
-    private int length;
-    private int progress;
+    [HideInInspector]
+    public int length;
+    [HideInInspector]
+    public int progress;
     private float startTime;
     private float runDuration;
+    private bool started;
 
     public GameModeManager myManager;
     public GameObject myPlayer;
@@ -26,6 +29,7 @@ public class RingManager : MonoBehaviour
         length = ringList.Count;
         progress = 0;
         startTime = 0f;
+        started = false;
     }
 
     // Update is called once per frame
@@ -53,6 +57,8 @@ public class RingManager : MonoBehaviour
     public void StartRun()
     {
         startTime = Time.fixedTime;
+        started = true;
+        //perhaps implement a start flag
     }
 
     //return pointer to the ring at given index
@@ -83,6 +89,7 @@ public class RingManager : MonoBehaviour
         startTime = Time.fixedTime;
         runDuration = 0;
         timeList.Clear();
+        started = false;
     }
 
     //is called when a ring collision happens (to be improved)
@@ -96,7 +103,7 @@ public class RingManager : MonoBehaviour
 
     private bool CheckColValidity(GameObject ring, Collider other)
     {
-        if (FindIndex(ring) == progress && (other.gameObject == myPlayer || myPlayer == null))
+        if (started && FindIndex(ring) == progress && (other.gameObject == myPlayer || myPlayer == null))
         {
             return true;
         }
@@ -121,7 +128,7 @@ public class RingManager : MonoBehaviour
         runDuration = Time.fixedTime - startTime;
         if (myManager)
         {
-            myManager.RunCompleted(runDuration, timeList);
+            myManager.RunCompleted(runDuration, timeList, myPlayer);
         }
     }
 }

@@ -40,4 +40,23 @@ public class ScoreManager : MonoBehaviour
     {
 
     }
+
+    public Score GetScore(bool allTime, int i)
+    {
+        if (allTime)
+        {
+            if (i < scoresAllTime.Count)
+            {
+                return scoresAllTime[i];
+            }
+        }
+        else
+        {
+            if (i < scoresThisGame.Count)
+            {
+                return scoresThisGame[i];
+            }
+        }
+        return null;
+    }
 }

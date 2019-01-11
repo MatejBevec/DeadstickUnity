@@ -16,7 +16,8 @@ abstract public class GameModeManager : MonoBehaviour
         
     }
 
-    abstract public void RunCompleted(float runDuration, List<float> timeList);
+    abstract public void RunCompleted(float runDuration, List<float> timeList, GameObject player);
 
+    abstract public void RingTagged();
 
 }

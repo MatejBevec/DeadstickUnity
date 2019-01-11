@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class RecordGhost : MonoBehaviour
 {
-    public List<Vector3> positions;
-    public List<Quaternion> rotations;
+    public Record record;
     private bool recording;
     // Start is called before the first frame update
     void Start()
@@ -16,35 +15,27 @@ public class RecordGhost : MonoBehaviour
     public void Begin()
     {
         recording = true;
+        record = new Record();
     }
 
     public void Stop()
     {
         recording = false;
+        if (record != null) { Debug.Log("Tracking stopped, " + record.length + " frames recorded."); }
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        //check if this is fine with pointer stuff
         if (recording)
         {
-            //check if pointers are alright !!!
-            positions.Add(transform.position);
-            rotations.Add(transform.rotation);
+            Vector3 p = transform.position;
+            Quaternion r = transform.rotation;
+            record.addFrame(p,r);
+            //Debug.Log(p+", "+r);
         }
     }
 
-    public List<Vector3> getPos()
-    {
-        List<Vector3> p = new List<Vector3>();
-        p.AddRange(positions);
-        return p;
-    }
-
-    public List<Quaternion> getRot()
-    {
-        List<Quaternion> r = new List<Quaternion>();
-        r.AddRange(rotations);
-        return r;
-    }
 }

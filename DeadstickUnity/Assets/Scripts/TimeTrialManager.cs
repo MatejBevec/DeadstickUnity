@@ -8,6 +8,7 @@ public class TimeTrialManager : GameModeManager
     public GameObject spawnPoint;
     public RingManager ringManager;
     public GameObject player;
+    private RecordGhost recordGhost;
     //score manager object
     public ScoreManager scoreManager;
 
@@ -15,22 +16,34 @@ public class TimeTrialManager : GameModeManager
 
     //metrics
     private float currentLead; //delta time between the player and the fastest ghost? at the prev. ring
+    private int currentProgress;
 
     //ghosts (maybe)
-    private GameObject GhostThisGame; //fastest this game
-    private GameObject GhostAllTime; //fastest of all time
+    public GameObject ghostPrefab1;
+    public GameObject ghostPrefab2;
 
 
     // Start is called before the first frame update
     void Start()
     {
         ringManager.myManager = this;
+        recordGhost = player.GetComponent<RecordGhost>();
         SetupRace();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //calculate lead compared to ghost at prev. ring
+        if (ringManager.progress > currentProgress)
+        {
+            currentProgress++;
+            Score s = scoreManager.GetScore(false, 0); //very temporary
+            if (s != null) { currentLead = ringManager.timeList[currentProgress - 1] - s.timeList[currentProgress - 1]; } //temporary - get ghost and timeList from same object!!!!
+            Debug.Log("lead:" + currentLead);
+        }
+
+
         bool anyKeyPressed = Input.GetKey(KeyCode.Space) ||
                 Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
         //start the game if player presses a key that controls the plane
@@ -44,9 +57,8 @@ public class TimeTrialManager : GameModeManager
         currentLead = 0;
         //teleport the player object to the start of the track
         player.transform.position = spawnPoint.transform.position;
-        //reset RingManager (currently redundant)
+        //reset RingManager
         ringManager.ResetTrack();
-        //spawn ghost - TODO
 
     }
     
@@ -54,18 +66,28 @@ public class TimeTrialManager : GameModeManager
     {
         state = 1;
         ringManager.StartRun();
+
+        //start tracking run
+        if (recordGhost != null) { recordGhost.Begin(); }
+
+        //spawn ghost - TODO
+        //some temporary testing
+        Score s = scoreManager.GetScore(false, 0);
+        if (s != null && ghostPrefab1 != null)
+        {
+            GameObject g = Instantiate(ghostPrefab1);
+            g.GetComponent<Ghost>().record = s.ghostRecord;
+        }
     }
 
-    public override void RunCompleted(float runDuration, List<float> timeList)
+    public override void RunCompleted(float runDuration, List<float> timeList, GameObject player)
     {
         Debug.Log("TimeTrialManager: Run completed. duration: " + runDuration);
         state = 2;
-        //remove ghosts
-        //reset RingManager
-        //respawn player
-        //wait at start
+        //stop tracking
+        if (recordGhost != null){ recordGhost.Stop(); }
+        //store data about past run
         StoreRun(runDuration, timeList);
-
         //reset race
         SetupRace();
 
@@ -74,7 +96,7 @@ public class TimeTrialManager : GameModeManager
     //respawn the player at the last tagged ring
     public void ResetCheckpoint()
     {
-        this.player.transform.position = ringManager.CurrentRing().transform.position;
+        player.transform.position = ringManager.CurrentRing().transform.position;
     }
 
     //temporary
@@ -94,13 +116,28 @@ public class TimeTrialManager : GameModeManager
     //store current run as a Score object in the ScoreManager
     public void StoreRun(float runDuration, List<float> timeList)
     {
+
+        Record record = null;
+        if (recordGhost != null)
+        {
+            record = recordGhost.record;
+        }
+
         Score thisRun = (Score)ScriptableObject.CreateInstance("Score");
-        thisRun.Construct(runDuration, Score.cloneFloatList(timeList), null, null); //for now
+        thisRun.Construct(runDuration, Score.cloneFloatList(timeList), record); //for now
         thisRun.trackName = ringManager.trackRoot.name;
+        thisRun.nickname = player.name;
         if (scoreManager)
         {
             scoreManager.AddScore(thisRun);
         }
         
     }
+
+    //called when a ring is tagged
+    public override void RingTagged()
+    {
+
+    }
+
 }
