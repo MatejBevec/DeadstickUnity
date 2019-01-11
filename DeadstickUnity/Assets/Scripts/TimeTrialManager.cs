@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TimeTrialManager : GameModeManager
 {
-    //temporary
-    public Score prevRun;
 
     public GameObject spawnPoint;
     public RingManager ringManager;
     public GameObject player;
+    //score manager object
+    public ScoreManager scoreManager;
 
     private int state; // 0-start line 1-mid race 2-completed
 
@@ -19,6 +19,7 @@ public class TimeTrialManager : GameModeManager
     //ghosts (maybe)
     private GameObject GhostThisGame; //fastest this game
     private GameObject GhostAllTime; //fastest of all time
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,18 +58,14 @@ public class TimeTrialManager : GameModeManager
 
     public override void RunCompleted(float runDuration, List<float> timeList)
     {
-        Debug.Log("RunCompleted called.");
-        Debug.Log("Run duration: " + runDuration);
+        Debug.Log("TimeTrialManager: Run completed. duration: " + runDuration);
         state = 2;
         //remove ghosts
         //reset RingManager
         //respawn player
         //wait at start
-        //temporary
-        displayTimes(timeList);
-        //prevRun = new Score(runDuration, timeList);
-        prevRun = (Score) ScriptableObject.CreateInstance("Score"); // ??? idk man
-        prevRun.time = runDuration; prevRun.timeList = Score.cloneFloatList(timeList);
+        StoreRun(runDuration, timeList);
+
         //reset race
         SetupRace();
 
@@ -81,7 +78,7 @@ public class TimeTrialManager : GameModeManager
     }
 
     //temporary
-    public void displayTimes(List<float> timeList)
+    public void displayTimes(List<float> timeList, Score prevRun)
     {
         if (prevRun != null && prevRun.timeList != null) { 
 
@@ -94,11 +91,16 @@ public class TimeTrialManager : GameModeManager
         }
     }
 
+    //store current run as a Score object in the ScoreManager
     public void StoreRun(float runDuration, List<float> timeList)
     {
-        prevRun = (Score)ScriptableObject.CreateInstance("Score");
-        prevRun.Construct(runDuration, timeList, null); //for now
-        prevRun.trackName = ringManager.trackRoot.name;
+        Score thisRun = (Score)ScriptableObject.CreateInstance("Score");
+        thisRun.Construct(runDuration, Score.cloneFloatList(timeList), null, null); //for now
+        thisRun.trackName = ringManager.trackRoot.name;
+        if (scoreManager)
+        {
+            scoreManager.AddScore(thisRun);
+        }
         
     }
 }

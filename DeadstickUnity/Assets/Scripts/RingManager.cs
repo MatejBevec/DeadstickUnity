@@ -108,7 +108,7 @@ public class RingManager : MonoBehaviour
         ring.GetComponent<Ring>().Tag();
         timeList.Add(Time.fixedTime - startTime);
         progress++;
-        Debug.Log("Ring (" + FindIndex(ring) + ") tagged, progress: " + progress + "/" + length);
+        Debug.Log("RingManager: Ring (" + FindIndex(ring) + ") tagged, progress: " + progress + "/" + length);
         if (progress >= length)
         {
             HandleCompletedTrack();

@@ -28,6 +28,7 @@ public class ScoreManager : MonoBehaviour
         scoresThisGame.Sort(Score.CompareScores);
         scoresAllTime.Add(s);
         scoresAllTime.Sort(Score.CompareScores);
+        Debug.Log("Score added, time: " + s.time);
     }
 
     public void SaveScores()

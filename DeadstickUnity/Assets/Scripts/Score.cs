@@ -6,7 +6,9 @@ public class Score : ScriptableObject //maybe just go with a normal class ?
 {
     public float time;
     public List<float> timeList;
-    public GameObject ghost;
+    //public GameObject ghost;
+    public List<Vector3> ghostPos;
+    public List<Quaternion> ghostRot;
 
     public string nickname;
 
@@ -24,11 +26,12 @@ public class Score : ScriptableObject //maybe just go with a normal class ?
     }
     */
 
-    public void Construct(float time, List<float> timeList, GameObject ghost)
+    public void Construct(float time, List<float> timeList,List<Vector3> ghostPos,List<Quaternion> ghostRot)
     {
         this.time = time;
         this.timeList = timeList;
-        this.ghost = ghost;
+        this.ghostPos = ghostPos;
+        this.ghostRot = ghostRot;
     }
 
     public static int CompareScores(Score x, Score y)
