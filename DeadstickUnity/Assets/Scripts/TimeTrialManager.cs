@@ -18,6 +18,11 @@ public class TimeTrialManager : GameModeManager
     private float currentLead; //delta time between the player and the fastest ghost? at the prev. ring
     private int currentProgress;
 
+    public float timeElapsed;
+
+    //UI
+    public MainUI UI;
+
     //ghosts (maybe)
     public GameObject ghostPrefab1;
     public GameObject ghostPrefab2;
@@ -43,11 +48,20 @@ public class TimeTrialManager : GameModeManager
             Debug.Log("lead:" + currentLead);
         }
 
+        //timer
+        if (state == 1) { timeElapsed = Time.fixedTime - ringManager.startTime; } // grdo
+
 
         bool anyKeyPressed = Input.GetKey(KeyCode.Space) ||
                 Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D);
         //start the game if player presses a key that controls the plane
         if (anyKeyPressed && state == 0) { StartRun(); };
+
+        //update UI
+        UI.time = timeElapsed;
+        UI.progress = ringManager.progress;
+        UI.length = ringManager.length;
+        UI.lead = currentLead;
     }
 
     public void SetupRace()
@@ -55,6 +69,8 @@ public class TimeTrialManager : GameModeManager
         //reset this object's variables
         state = 0;
         currentLead = 0;
+        currentProgress = 0;
+        timeElapsed = 0;
         //teleport the player object to the start of the track
         player.transform.position = spawnPoint.transform.position;
         //reset RingManager

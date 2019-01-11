@@ -27,6 +27,12 @@ public class SplitScreenManager : GameModeManager
     private float setupTime; //time when the race is set up
     public float countdownTime;
 
+    public float timeElapsed;
+
+    //UI
+    public MainUI UI1;
+    public MainUI UI2;
+
     //metrics
     private float currentLead; //player1 - player 2
     private int sharedProgress; //min(progress1, progress2)
@@ -51,9 +57,12 @@ public class SplitScreenManager : GameModeManager
     // Update is called once per frame
     void Update()
     {
+        //timer
+        if (state == 1) { timeElapsed = Time.fixedTime- ringManager1.startTime; } // grdo
+
         //start race when after countdown - TODO
         //temporary - do it with coroutines later
-        if(state == 0)
+        if (state == 0)
         {
             if (Time.fixedTime - setupTime >= countdownTime)
             {
@@ -74,7 +83,23 @@ public class SplitScreenManager : GameModeManager
             sharedProgress++;
             currentLead = ringManager1.timeList[sharedProgress-1] - ringManager2.timeList[sharedProgress-1];
             Debug.Log("lead:" + currentLead);
-        } 
+        }
+
+        //update UI
+        if (UI1 != null)
+        {
+            UI1.time = timeElapsed;
+            UI1.progress = ringManager1.progress;
+            UI1.length = ringManager1.length;
+            UI1.lead = currentLead;
+        }
+        if (UI2 != null)
+        { 
+            UI2.time = timeElapsed;
+            UI2.progress = ringManager1.progress;
+            UI2.length = ringManager1.length;
+            UI2.lead = -currentLead;
+        }
 
     }
 
@@ -84,6 +109,7 @@ public class SplitScreenManager : GameModeManager
         state = 0;
         currentLead = 0;
         sharedProgress = 0;
+        timeElapsed = 0;
         setupTime = Time.fixedTime;
         finished1 = false; finished2 = false;
         //teleport the player object to the start of the track

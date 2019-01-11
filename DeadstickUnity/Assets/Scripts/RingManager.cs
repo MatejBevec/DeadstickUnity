@@ -13,7 +13,8 @@ public class RingManager : MonoBehaviour
     public int length;
     [HideInInspector]
     public int progress;
-    private float startTime;
+    [HideInInspector]
+    public float startTime;
     private float runDuration;
     private bool started;
 
