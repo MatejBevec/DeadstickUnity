@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7661224232185699952
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1429859017532754111, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_Name
+      value: AvionclPrefab-8 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429859017532527775, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -25.838848
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429859017532527775, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 130.82501
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429859017532527775, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -719.2708
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429859017532527775, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429859017532527775, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429859017532527775, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429859017532527775, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429859017532527775, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429859017532527775, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429859017532527775, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1429859017532527775, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554703551079448831, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: drugiAvioncl
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554703551079448831, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554703551079448831, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: inputControl
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554703551079448831, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: collisionBetweenAvioncls
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554703551079448828, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: followAvioncl
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554703551079448828, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: aViewFromHeaven
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6554703551079448828, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: torpedoMovement2
+      value: 
+      objectReference: {fileID: 1663334027787327735}
+    - target: {fileID: 4719567531985259759, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: drugiAvioncl
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719567531985259759, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: drugiAvionclScript
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719567531985259759, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: kotPriKateremSeZasleduje
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027319928383751815, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: drugiAvioncl
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027319928383751815, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: drugiAvionclScript
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027319928383751815, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: kotPriKateremSeZasleduje
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8428628938937471266, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: drugiAvioncl
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8428628938937471266, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: drugiAvionclScript
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8428628938937471266, guid: 464bee3936e824f4094d4d98cf5e9a66,
+        type: 3}
+      propertyPath: otherAvionclCube
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 464bee3936e824f4094d4d98cf5e9a66, type: 3}
+--- !u!114 &1663334027787327735 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9027319928383751815, guid: 464bee3936e824f4094d4d98cf5e9a66,
+    type: 3}
+  m_PrefabInstance: {fileID: 7661224232185699952}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dbd97ed11d8f4202a745f89b5250b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

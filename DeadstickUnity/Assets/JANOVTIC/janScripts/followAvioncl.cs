@@ -6,12 +6,11 @@ public class followAvioncl : MonoBehaviour
 {
     public Transform avioncl;
     public Vector3 offset;
-    public float bias;
+    public float bias; //percent to move towards new destination
     public float up;
     public float back;
     public float CamForward;
 
-    // Update is called once per frame
     void Update()
     {
         offset = avioncl.position - avioncl.forward * back + Vector3.up * up;

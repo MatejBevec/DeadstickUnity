@@ -6,27 +6,27 @@ public class zaveterjeScript : MonoBehaviour
 {
     public GameObject drugiAvioncl;
     public avionclMovement drugiAvionclScript;
-    public float oduzetDragPower;
-    private float novDragPower;
-    public Terrain teren;
     public GameObject otherAvionclCube;
 
+    private float novDragPower;
+    public float oduzetDragPower;
 
     void Start()
     {
         novDragPower = drugiAvionclScript.dragPower - oduzetDragPower;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == otherAvionclCube.name)
         {
-            Debug.Log(other.gameObject.name);
             drugiAvionclScript.dragPower = novDragPower;
         }
     }
 
-
-
+    private void OnTriggerExit(Collider other)
+    {
+        drugiAvionclScript.dragPower = drugiAvionclScript.nespremenjenDragPower;
+    }
 }
 

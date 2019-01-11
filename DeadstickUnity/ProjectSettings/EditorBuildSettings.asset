@@ -5,7 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/JANOVTIC/janScene/MainMenu.unity
+    guid: 3e627efbd987143e488c28e8ead26736
+  - enabled: 1
+    path: Assets/JANOVTIC/janScene/playMenu.unity
+    guid: c43cdc5dd16874c4aadc7672a2192994
+  - enabled: 1
+    path: Assets/JANOVTIC/janScene/ControlsMenu.unity
+    guid: 6da092dc1f7d641bdb05456b0efd5934
+  - enabled: 1
+    path: Assets/JANOVTIC/janScene/Time Trial.unity
+    guid: feaed9554758f4d4b84ccb32ef97064e
+  - enabled: 1
+    path: Assets/JANOVTIC/janScene/ControlsMenuSS.unity
+    guid: 0ec3c8920b1b94094bd53f63d015c74f
+  - enabled: 1
+    path: Assets/JANOVTIC/janScene/testScena.unity
+    guid: f0da5778584174e3ab6593b3b716e983
   m_configObjects: {}

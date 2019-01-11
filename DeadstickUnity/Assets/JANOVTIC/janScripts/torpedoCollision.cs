@@ -7,12 +7,14 @@ using UnityEngine;
 public class torpedoCollision : MonoBehaviour
 {
     public GameObject explosionEffect;
-
     public AudioManager AudioManager;
     public GameObject torpedo;
-    public float secToDestroy;
-    private bool exlosionPlayed1 = false;
+
+    public float secToDestroy;//seconds to destroy torpedo after launch
+
     public bool izstreljen = false;
+    private bool exlosionPlayed1 = false;
+   
   
     private void Explode()
     {
@@ -23,7 +25,6 @@ public class torpedoCollision : MonoBehaviour
     {
         if (!exlosionPlayed1&&izstreljen&&collision.collider.tag == "Ovira")
         {
-            Destroy(gameObject, secToDestroy);
             AudioManager.playExplosion();
             exlosionPlayed1 = true;
             Explode();

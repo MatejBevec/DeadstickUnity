@@ -5,16 +5,18 @@ using UnityEngine.Audio;
 
 public class rotatePropeler : MonoBehaviour
 {
-    //public avionclMovement avionclMovementt;
     public AudioSource planeAudio;
+    public avionclMovement scriptMovement;
+
     public float propelerRotation;
     public float audioPropelerPitchDivider;
     public float audioPropelerVolumeDivider;
+    public float maxPitch;
+
     private float pitchLevel;
     private float maxPropelerRotation;
-    public float maxPitch;
+
     private bool AlreadyGotMaxSpeed = false;
-    public avionclMovement scriptMovement;
 
 
     private void getMaxSpeed()
@@ -22,23 +24,26 @@ public class rotatePropeler : MonoBehaviour
             maxPropelerRotation = scriptMovement.speed * maxPitch;
             audioPropelerVolumeDivider = scriptMovement.maxSpeed / 2;
     }
-    // Update is called once per frame
+   
     void Update()
     {
+        //------------------------------------------ GET MAX SPEED WHEN NEEDED ------------------------------------------------------
         if (!AlreadyGotMaxSpeed) {
             getMaxSpeed();
             AlreadyGotMaxSpeed = true;
         }
+
+        //------------------------------------------ DO NOT OVERROTATE PROPELER ------------------------------------------------------
         if (propelerRotation > maxPropelerRotation)
             {
                 propelerRotation = maxPropelerRotation;
             }
 
+        //------------------------------------------ CALCULATE ROTATION AND ROTATE IT ------------------------------------------------------
         propelerRotation = scriptMovement.speed * scriptMovement.thrustLevel;
-
-
         transform.Rotate(0f,0f,propelerRotation);
 
+        ////------------------------------------------ HANDLE AUDIO (BASED ON PROPELER) ------------------------------------------------------
         pitchLevel = propelerRotation / audioPropelerPitchDivider;
         planeAudio.pitch = pitchLevel;
         planeAudio.volume = (audioPropelerVolumeDivider) / scriptMovement.speed;
